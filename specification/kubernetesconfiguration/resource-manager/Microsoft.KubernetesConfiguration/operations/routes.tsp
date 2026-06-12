@@ -2,7 +2,6 @@
 
 import "@azure-tools/typespec-azure-core";
 import "@typespec/rest";
-import "./models.tsp";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/openapi";
 
@@ -62,6 +61,6 @@ interface OperationStatusOperationGroup {
   @action("operations")
   list is OperationStatusOperationGroupOps.List<
     {},
-    Response = OperationStatusList
+    Response = Azure.Core.Page<Azure.ResourceManager.CommonTypes.OperationStatusResult>
   >;
 }
